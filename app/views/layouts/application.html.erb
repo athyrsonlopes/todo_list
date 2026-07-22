@@ -27,6 +27,15 @@
   </head>
 
   <body>
+    
+
+    <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type == 'alert' ? 'danger' : 'success'%> alert-dimissible  fade show" role="alert">
+        <%= message %>
+        <button type="button" class="btn-close" data-bs-dimiss='alert' aria-label='Close'></button>
+      </div>
+    <% end%>
+
     <%= yield %>
   </body>
 </html>
