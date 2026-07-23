@@ -1,4 +1,4 @@
-require 'csv'
+require "csv"
 
 module Exportable
   extend ActiveSupport::Concern
