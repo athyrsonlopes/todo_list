@@ -7,7 +7,7 @@ class Task < ApplicationRecord
 
   scope :only_parents, -> { where(parent_id: nil) }
 
-  def paret?
+  def parent?
     parent_id.nil?
   end
 

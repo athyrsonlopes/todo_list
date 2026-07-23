@@ -5,7 +5,7 @@
 
   <div class="col-4 mt-4 text-end">
     <%= link_to "+ tarefa", new_task_path, class: "btn btn-success"%>
-    <%= link_to "Exportar CSV", export_csv_task_path, class: "btn btn-info"%>
+    <%= link_to "Exportar CSV", export_csv_tasks_path, class: "btn btn-info"%>
   </div>
 </div>
 
@@ -21,10 +21,10 @@
 
     <tbody>
       <% @tasks.each do |task|%>
-        <%= render "table_row", task: task%>
+        <%= render "table_row", task: task %>
 
         <% task.sub_tasks.order(:due_date).each do |sub_tasks| %>
-          <%= render "table_row", task: sub_task %>
+          <%= render "table_row", task: sub_tasks %>
         <%end%>
       <% end %>
     </tbody>
