@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "tasks#index"
-  resources :tasks, except: %i[show]
+  resources :tasks, except: %i[show] do 
+    collection do
+      get :export_csv
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
