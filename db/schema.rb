@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_22_211511) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_23_005250) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -19,6 +19,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_22_211511) do
     t.string "description", null: false
     t.boolean "done", default: false, null: false
     t.date "due_date"
+    t.bigint "parent_id"
     t.datetime "updated_at", null: false
+    t.index ["parent_id"], name: "index_tasks_on_parent_id"
   end
+
+  add_foreign_key "tasks", "tasks", column: "parent_id"
 end
